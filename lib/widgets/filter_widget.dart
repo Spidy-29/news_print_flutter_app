@@ -7,7 +7,6 @@ class FilterNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      height: 32,
       margin: const EdgeInsets.only(right: 8),
       decoration: BoxDecoration(
           color: const Color(0xFFF2F2F2), borderRadius: BorderRadius.circular(4)),
