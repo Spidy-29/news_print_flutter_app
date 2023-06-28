@@ -1,35 +1,40 @@
 import 'package:flutter/material.dart';
 
-class RecommendedNewsCard extends StatelessWidget {
-  const RecommendedNewsCard({super.key});
+class TrendingNewsCard extends StatelessWidget {
+  const TrendingNewsCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      
+      margin: const EdgeInsets.only(bottom: 12.0),
+      color: Colors.white,
+      elevation: 2.0,
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: Color(0xFFF0F0F0)),
       ),
-      elevation: 2.0,
-      color: Colors.white,
       child: Container(
-        width: 200,
-        child: Column(
+        height: 151,
+        width: double.infinity,
+        child: Row(
           children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
-              ),
-              child: Image.asset(
-                "assets/images/modi.jpg",
-                fit: BoxFit.fitWidth,
-                width: double.infinity,
-              ),
-            ),
             Expanded(
               flex: 1,
-              child: Container(
+              child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    bottomLeft: Radius.circular(12),
+                  ),
+                  child: Image.asset(
+                    "assets/images/modi.jpg",
+                    fit: BoxFit.fill,
+                    height: double.infinity,
+                  )),
+            ),
+            Expanded(
+              flex: 2,
+              child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -43,10 +48,10 @@ class RecommendedNewsCard extends StatelessWidget {
                       ),
                     ),
                     const Text(
-                      "Goldman is \"cooperating with and providing information to various governmental bodies\" on its activities for SVB in March just before the tech-oriented bank went under, according to the filing.",
+                      "Goldman is \"cooperating with and providing information to various governmental bodies\" on its activities for SVB in March just before the tech-oriented bank went under, ",
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 8,
+                        fontSize: 10,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -75,19 +80,19 @@ class RecommendedNewsCard extends StatelessWidget {
                           ],
                         ),
                         const Text(
-                          "4:12 PM",
+                          "3 min Read  4:12 PM ",
                           style: TextStyle(
                             color: Color(0xFF828282),
-                            fontSize: 10,
+                            fontSize: 8,
                             fontWeight: FontWeight.w500,
                           ),
-                        ),
+                        )
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),

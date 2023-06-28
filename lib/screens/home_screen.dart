@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news_print_app/widgets/recommended_news_card_widget.dart';
 
 import '../widgets/custom_appbar_widget.dart';
+import '../widgets/custom_bottom_navigationbar_widget.dart';
 import '../widgets/fliter_news_scroll_widget.dart';
+import '../widgets/recommeded_news_widget.dart';
 import '../widgets/trending_news_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,71 +11,59 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    // final scrollController = ScrollController();
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Stack(
           children: [
-            CustomAppBar(),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 20),
-                child: FilterNewsScroll(),
-              ),
-            ),
             const Padding(
-              padding: EdgeInsets.only(bottom: 14),
-              child: Text(
-                "🗞️ Recommended",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 6,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: const [
-                  RecommendedNewsCard(),
-                  RecommendedNewsCard(),
-                  RecommendedNewsCard(),
-                  RecommendedNewsCard(),
-                  RecommendedNewsCard(),
-                ],
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(
-                top: 26,
-              ),
-              child: Text(
-                "🔥 Trending",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 5,
-              child: ListView(
-                children: const [
-                  TrendingNews(),
-                  TrendingNews(),
-                  TrendingNews(),
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomAppBar(),
+                  FilterNewsScroll(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "🗞️ Recommended",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 14,
+                  ),
+                  RecommendedNews(),
+                  SizedBox(
+                    height: 26,
+                  ),
+                  Text(
+                    "🔥 Trending",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   TrendingNews(),
                 ],
               ),
             ),
+            Container(
+              alignment: Alignment.bottomCenter,
+              child: CustomBottomNavigationBar(),
+            )
           ],
         ),
+        // bottomNavigationBar: CustomBottomNavigationBar(),
       ),
     );
   }

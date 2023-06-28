@@ -12,7 +12,6 @@ class CustomAppBar extends StatelessWidget {
         backgroundColor: const Color(0xFFF2F2F2),
         child: Image.asset("assets/images/user_pic.png"),
       ),
-      // leading: Image.asset("assets/images/user_pic.png",),
       title: const Text(
         "👋🏻 Welcome,",
         style: TextStyle(
