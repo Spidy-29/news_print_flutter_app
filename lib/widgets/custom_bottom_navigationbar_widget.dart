@@ -1,0 +1,73 @@
+import 'package:flutter/material.dart';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+
+class CustomBottomNavigationBar extends StatefulWidget {
+  const CustomBottomNavigationBar({super.key});
+
+  @override
+  State<CustomBottomNavigationBar> createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int index = 0;
+  @override
+  Widget build(BuildContext context) {
+    return FloatingNavbar(
+      borderRadius: 100,
+      itemBorderRadius: 100,
+      selectedBackgroundColor: const Color(0xFF005EEC),
+      selectedItemColor: Colors.white,
+      backgroundColor: Colors.white,
+      unselectedItemColor: Colors.brown.shade600,
+      margin: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+      items: [
+        FloatingNavbarItem(
+          icon: Icons.child_care,
+          title: "For You",
+        ),
+        FloatingNavbarItem(
+          icon: Icons.bookmark,
+          title: "NewsPaper",
+        ),
+        FloatingNavbarItem(
+          icon: Icons.document_scanner_sharp,
+          title: "Bookmark",
+        ),
+        FloatingNavbarItem(
+          icon: Icons.person_3_rounded,
+          title: "Profile",
+        ),
+      ],
+      currentIndex: index,
+      onTap: (val) {
+        setState(() {
+          index = val;
+        });
+      },
+    );
+
+    // ScrollBottomNavigationBar(
+    //   controller: scrollController,
+    //   items: const [
+    //     BottomNavigationBarItem(
+    //       icon: Icon(Icons.child_care),
+    //       label: "For You",
+    //     ),
+    //     BottomNavigationBarItem(
+    //       icon: Icon(Icons.bookmark),
+    //       label: "",
+    //     ),
+    //     BottomNavigationBarItem(
+    //       icon: Icon(Icons.document_scanner_sharp),
+    //       label: "For You",
+    //     ),
+    //     BottomNavigationBarItem(
+    //       icon: Icon(Icons.person_3_rounded),
+    //       label: "For You",
+    //     ),
+    //   ],
+    //   currentIndex: 0,
+    // );
+  }
+}
