@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_print_app/widgets/navbar_demo_widget.dart';
 
 import '../widgets/custom_appbar_widget.dart';
 import '../widgets/custom_bottom_navigationbar_widget.dart';
@@ -62,7 +61,8 @@ class HomeScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: const CustomBottomNavigationBar(),
               // child: const DemoNavBar(),
-            )
+            ),
+            
           ],
         ),
         // bottomNavigationBar: CustomBottomNavigationBar(),

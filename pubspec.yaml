@@ -39,6 +39,7 @@ dependencies:
   scroll_bottom_navigation_bar: ^4.0.0
   floating_bottom_navigation_bar: ^1.5.2
   persistent_bottom_nav_bar: ^5.0.2
+  video_player: ^2.7.0
 
 dev_dependencies:
   flutter_test:
