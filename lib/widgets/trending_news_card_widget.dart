@@ -61,10 +61,10 @@ class TrendingNewsCard extends StatelessWidget {
                         Row(
                           children: [
                             ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
                               child: Image.asset(
                                 "assets/images/economic_times_logo.png",
                               ),
-                              borderRadius: BorderRadius.circular(4),
                             ),
                             const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 3),
