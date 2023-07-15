@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_appbar_widget.dart';
-import '../widgets/custom_bottom_navigationbar_widget.dart';
-import '../widgets/fliter_news_scroll_widget.dart';
-import '../widgets/recommeded_news_widget.dart';
-import '../widgets/trending_news_widget.dart';
+import '../utils/widgets/custom_appbar_widget.dart';
+import '../utils/widgets/custom_bottom_navigationbar_widget.dart';
+import '../utils/widgets/fliter_news_scroll_widget.dart';
+import '../utils/widgets/recommeded_news_widget.dart';
+import '../utils/widgets/trending_news_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

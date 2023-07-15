@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_print_app/widgets/filter_widget.dart';
+import 'package:news_print_app/utils/widgets/filter_widget.dart';
 
 class FilterNewsScroll extends StatelessWidget {
   const FilterNewsScroll({super.key});

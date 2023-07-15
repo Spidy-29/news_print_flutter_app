@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_print_app/constants/global_variable.dart';
+import 'package:news_print_app/utils/onboarding/widgets/page1.dart';
+import 'package:news_print_app/utils/onboarding/widgets/page2.dart';
+import 'package:news_print_app/utils/onboarding/widgets/page3.dart';
 import 'package:video_player/video_player.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -15,13 +18,33 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.networkUrl(Uri.parse(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'));
+    _controller =
+        VideoPlayerController.asset('assets/videos/onboarding_video.mp4');
     _controller.addListener(() {
-      setState(() {});
+      if (_controller.value.isPlaying) {
+        setState(() {
+          pages = 1;
+        });
+      } else if (!_controller.value.isPlaying &&
+          (_controller.value.duration == _controller.value.position)) {
+        //checking the duration and position every time
+        //Video Completed//
+        setState(() {
+          pages = 2;
+        });
+      }
     });
-    _controller.initialize().then((_) => setState(() {}));
+    _controller.initialize();
+
+    OnboardingPage1.controller = _controller;
   }
+
+  List<Widget> listOfPages = [
+    const OnboardingPage1(),
+    const OnboardingPage2(),
+    const OnboardingPage3(),
+  ];
+  int pages = 0;
 
   @override
   void dispose() {
@@ -36,43 +59,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         backgroundColor: GlobalVariables.bgColor,
         body: Column(
           children: <Widget>[
-            // video
-            Container(
-              height: 440,
-              color: GlobalVariables.secondaryColor,
-              alignment: Alignment.bottomCenter,
+            // video container
+            SizedBox(
+              height: 360,
+              width: double.infinity,
               child: VideoPlayer(_controller),
             ),
             const SizedBox(
               height: 24,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-              child: const Text(
-                "A wise man once stated, \"In earlier times, reading the news was great.\"",
-                style: TextStyle(
-                  color: GlobalVariables.textColor,
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-              child: const Text(
-                "Which completely made us to rethink the news reading experience.",
-                style: TextStyle(
-                  color: GlobalVariables.textColor,
-                ),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                print('button press');
-                _controller.play();
-              },
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: GlobalVariables.primaryColor),
-              child: const Text("Text Me"),
-            ),
+            listOfPages[pages],
           ],
         ),
       ),
