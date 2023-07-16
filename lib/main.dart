@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:news_print_app/router.dart';
 import 'package:news_print_app/screens/splash_screen.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'NEWS PRINT',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
+      onGenerateRoute: (settings) => generateRoute(settings),
       //First screen appear is Splash Screen
       home: const Scaffold(
         body: SplashScreen(),

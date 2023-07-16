@@ -14,7 +14,7 @@ class TrendingNewsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: Color(0xFFF0F0F0)),
       ),
-      child: Container(
+      child: SizedBox(
         height: 151,
         width: double.infinity,
         child: Row(
@@ -61,10 +61,10 @@ class TrendingNewsCard extends StatelessWidget {
                         Row(
                           children: [
                             ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
                               child: Image.asset(
                                 "assets/images/economic_times_logo.png",
                               ),
-                              borderRadius: BorderRadius.circular(4),
                             ),
                             const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 3),

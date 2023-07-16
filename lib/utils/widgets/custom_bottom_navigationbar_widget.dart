@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
@@ -23,20 +24,24 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       margin: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
       items: [
         FloatingNavbarItem(
-          icon: Icons.child_care,
+          // icon: Icons.child_care,
           title: "For You",
+          customWidget: SvgPicture.asset('assets/images/ic_for_you.svg'),
         ),
         FloatingNavbarItem(
-          icon: Icons.bookmark,
+          // icon: Icons.bookmark,
           title: "NewsPaper",
+          customWidget: SvgPicture.asset('assets/images/ic_news_paper.svg'),
         ),
         FloatingNavbarItem(
-          icon: Icons.document_scanner_sharp,
+          // icon: Icons.document_scanner_sharp,
           title: "Bookmark",
+          customWidget: SvgPicture.asset('assets/images/ic_bookmark.svg'),
         ),
         FloatingNavbarItem(
-          icon: Icons.person_3_rounded,
+          // icon: Icons.person_3_rounded,
           title: "Profile",
+          customWidget: Image.asset('assets/images/ic_profile.png'),
         ),
       ],
       currentIndex: index,
