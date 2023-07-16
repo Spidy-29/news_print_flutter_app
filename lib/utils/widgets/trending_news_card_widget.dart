@@ -14,7 +14,7 @@ class TrendingNewsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: Color(0xFFF0F0F0)),
       ),
-      child: Container(
+      child: SizedBox(
         height: 151,
         width: double.infinity,
         child: Row(

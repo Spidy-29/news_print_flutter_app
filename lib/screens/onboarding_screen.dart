@@ -15,6 +15,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   late VideoPlayerController _controller;
+  int pages = 0;
   @override
   void initState() {
     super.initState();
@@ -44,7 +45,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     const OnboardingPage2(),
     const OnboardingPage3(),
   ];
-  int pages = 0;
 
   @override
   void dispose() {
@@ -60,15 +60,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         body: Column(
           children: <Widget>[
             // video container
-            SizedBox(
-              height: 360,
-              width: double.infinity,
-              child: VideoPlayer(_controller),
+            Expanded(
+              flex: 1,
+              child: SizedBox(
+                height: 360,
+                width: double.infinity,
+                child: VideoPlayer(_controller),
+              ),
             ),
             const SizedBox(
               height: 24,
             ),
-            listOfPages[pages],
+            Expanded(
+              flex: 1,
+              child: listOfPages[pages],
+            ),
           ],
         ),
       ),

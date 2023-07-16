@@ -12,7 +12,7 @@ class RecommendedNewsCard extends StatelessWidget {
       ),
       elevation: 2.0,
       color: Colors.white,
-      child: Container(
+      child: SizedBox(
         width: 200,
         child: Column(
           children: [
@@ -56,10 +56,10 @@ class RecommendedNewsCard extends StatelessWidget {
                         Row(
                           children: [
                             ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
                               child: Image.asset(
                                 "assets/images/economic_times_logo.png",
                               ),
-                              borderRadius: BorderRadius.circular(4),
                             ),
                             const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 3),

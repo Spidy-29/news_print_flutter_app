@@ -7,11 +7,13 @@ class OnboardingPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       margin: const EdgeInsets.only(
         top: 24,
       ),
+      alignment: Alignment.topCenter,
       child: const Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircularProgressIndicator(
             color: GlobalVariables.primaryColor,

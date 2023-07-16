@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:news_print_app/constants/global_variable.dart';
+import 'package:news_print_app/screens/signin_with_email.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 import 'package:news_print_app/utils/widgets/icon_with_text_row_widget.dart';
 
@@ -14,10 +15,11 @@ class OnboardingPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               padding: const EdgeInsets.symmetric(
@@ -47,7 +49,6 @@ class OnboardingPage3 extends StatelessWidget {
           ],
         ),
         Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
             CustomButton(
               onTap: onGoogleSignClick,
@@ -63,7 +64,12 @@ class OnboardingPage3 extends StatelessWidget {
               height: 12,
             ),
             CustomButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  SigninWithEmail.routeName,
+                );
+              },
               txtWidget: const Text(
                 "Sign In with Email",
                 style: TextStyle(
@@ -73,6 +79,7 @@ class OnboardingPage3 extends StatelessWidget {
               ),
               leftMargin: 24,
               rightMargin: 24,
+              bottomMargin: 30,
             ),
           ],
         )
