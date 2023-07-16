@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      constraints: const BoxConstraints(maxHeight: 40.0),
+      constraints: const BoxConstraints(maxHeight: 50.0),
       margin: EdgeInsets.only(
         top: topMargin,
         bottom: bottomMargin,
@@ -30,8 +30,8 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
-          elevation: 2.0,
-          padding: const EdgeInsets.symmetric(vertical: 12),
+          elevation: 1.0,
+          padding: const EdgeInsets.symmetric(vertical: 16),
           backgroundColor: bgColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),

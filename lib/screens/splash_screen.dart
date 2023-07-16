@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:news_print_app/screens/onboarding_screen.dart';
+import 'package:news_print_app/screens/signin_with_email.dart';
 
 //we convert this screen into stateFullWidget because this screen will remove after some duration and homeScreen will display.
 //so this screen do some change so in stateFullWidget
@@ -23,13 +23,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 2), () {
       //this will replace screen to HomeScreen
       //so when user click back splash screen not comes. because it is replace in the stack Screens.
-      // Navigator.pushReplacement(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) => const HomeScreen(),
-      //     ));
 
-      Navigator.pushNamed(context, OnboardingScreen.routeName);
+      Navigator.pushReplacementNamed(context, SigninWithEmail.routeName);
     });
 
     super.initState();
