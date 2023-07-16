@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:news_print_app/constants/global_variable.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
@@ -10,7 +9,6 @@ class SigninWithEmail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextInputControl _emailController;
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -43,7 +41,6 @@ class SigninWithEmail extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            TextField(controller: _emailController,)
             Container(
               width: double.infinity,
               alignment: Alignment.center,
