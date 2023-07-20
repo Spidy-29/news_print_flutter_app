@@ -9,6 +9,8 @@ import '../utils/widgets/trending_news_widget.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  static const String routeName = '/HomeSCreen';
+
   @override
   Widget build(BuildContext context) {
     // final scrollController = ScrollController();
@@ -62,7 +64,6 @@ class HomeScreen extends StatelessWidget {
               child: const CustomBottomNavigationBar(),
               // child: const DemoNavBar(),
             ),
-            
           ],
         ),
         // bottomNavigationBar: CustomBottomNavigationBar(),

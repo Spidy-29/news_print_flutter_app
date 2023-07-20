@@ -15,7 +15,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   late VideoPlayerController _controller;
-  int pages = 0;
+  int pages = 2;
   @override
   void initState() {
     super.initState();

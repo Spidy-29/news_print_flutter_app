@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_print_app/screens/home_screen.dart';
 import 'package:news_print_app/screens/onboarding_screen.dart';
 import 'package:news_print_app/screens/signin_with_email.dart';
 
@@ -12,6 +13,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     case SigninWithEmail.routeName:
       return MaterialPageRoute(
         builder: (_) => const SigninWithEmail(),
+        settings: routeSettings,
+      );
+    case HomeScreen.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const HomeScreen(),
         settings: routeSettings,
       );
     default:

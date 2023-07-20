@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:news_print_app/constants/global_variable.dart';
+import 'package:news_print_app/screens/home_screen.dart';
 import 'package:news_print_app/screens/signin_with_email.dart';
+import 'package:news_print_app/servers/auth_service.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 import 'package:news_print_app/utils/widgets/icon_with_text_row_widget.dart';
 
 class OnboardingPage3 extends StatelessWidget {
   const OnboardingPage3({super.key});
 
-  void onGoogleSignClick() {
-    print("Google Sign In Click");
-  }
+  void googleSignIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,12 @@ class OnboardingPage3 extends StatelessWidget {
         Column(
           children: [
             CustomButton(
-              onTap: onGoogleSignClick,
+              onTap: () async {
+                print("Button Clicked");
+                await AuthService().signInWithGoogle();
+                print("Function Called And Returned");
+                Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+              },
               txtWidget: IconWithText(
                 txt: "Sign In with Google",
                 imageWidget: SvgPicture.asset("assets/images/ic_google.svg"),
