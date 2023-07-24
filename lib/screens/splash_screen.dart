@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:news_print_app/screens/home_screen.dart';
 import 'package:news_print_app/screens/onboarding_screen.dart';
 
 //we convert this screen into stateFullWidget because this screen will remove after some duration and homeScreen will display.
@@ -25,7 +27,11 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         //this will replace screen to HomeScreen
         //so when user click back splash screen not comes. because it is replace in the stack Screens.
-        Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
+        if (FirebaseAuth.instance.currentUser != null) {
+          Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+        } else {
+          Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
+        }
       },
     );
 

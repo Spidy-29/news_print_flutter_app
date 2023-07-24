@@ -8,6 +8,12 @@ class OtpVerifyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // String otpValue = "";
+
+    void verifyOTP() {
+      print("Varification is pending");
+    }
+
     return Expanded(
       flex: 1,
       child: Column(
@@ -35,9 +41,7 @@ class OtpVerifyWidget extends StatelessWidget {
                 showFieldAsBox: true,
                 focusedBorderColor: GlobalVariables.primaryColor,
                 onSubmit: (value) {
-                  print(value);
-                  print(value.characters);
-                  1print(value.length);
+                  // otpValue = value;
                 },
                 fieldWidth: 44,
                 keyboardType: TextInputType.number,
@@ -66,7 +70,7 @@ class OtpVerifyWidget extends StatelessWidget {
             children: [
               CustomButton(
                 onTap: () {
-                  print('Verify OTP pressed');
+                  verifyOTP();
                 },
                 txtWidget: const Text(
                   "Verify OTP",

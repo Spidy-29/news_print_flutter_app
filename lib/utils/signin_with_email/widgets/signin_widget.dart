@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_print_app/constants/global_variable.dart';
-import 'package:news_print_app/screens/otp_verify_screen.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 
 class SignInWidget extends StatelessWidget {
@@ -9,6 +8,7 @@ class SignInWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final emailController = TextEditingController();
+
     return Expanded(
       flex: 1,
       child: Column(
@@ -79,9 +79,7 @@ class SignInWidget extends StatelessWidget {
               ),
               CustomButton(
                 onTap: () {
-                  print('Continue pressed');
-                  print(emailController.text.toString());
-                  Navigator.pushNamed(context, OtpVerifyScreen.routeName);
+                  // sendOtpToUserEmail();
                 },
                 txtWidget: const Text(
                   "Continue",
