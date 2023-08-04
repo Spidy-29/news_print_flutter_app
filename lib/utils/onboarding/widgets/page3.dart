@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:news_print_app/constants/global_variable.dart';
 import 'package:news_print_app/screens/home_screen.dart';
-import 'package:news_print_app/screens/signin_with_email_screen.dart';
+import 'package:news_print_app/screens/signin_with_phone_number_screen.dart';
 import 'package:news_print_app/servers/auth_service.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 import 'package:news_print_app/utils/widgets/icon_with_text_row_widget.dart';
@@ -76,7 +76,7 @@ class OnboardingPage3 extends StatelessWidget {
                 );
               },
               txtWidget: const Text(
-                "Sign In with Email",
+                "Sign In with Phone Number",
                 style: TextStyle(
                   fontSize: 14,
                   color: GlobalVariables.bgColor,

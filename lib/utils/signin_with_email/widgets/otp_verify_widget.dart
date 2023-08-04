@@ -1,17 +1,29 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:news_print_app/constants/global_variable.dart';
+import 'package:news_print_app/screens/home_screen.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class OtpVerifyWidget extends StatelessWidget {
-  const OtpVerifyWidget({super.key});
+  final String verificationId;
+  const OtpVerifyWidget({
+    super.key,
+    required this.verificationId,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // String otpValue = "";
+    String otpValue = "";
 
-    void verifyOTP() {
-      print("Varification is pending");
+    void verifyOTP() async {
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+          verificationId: verificationId, smsCode: otpValue);
+
+      // Sign the user in (or link) with the credential
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      Navigator.pushNamedAndRemoveUntil(
+          context, HomeScreen.routeName, (route) => false);
     }
 
     return Expanded(
@@ -41,7 +53,7 @@ class OtpVerifyWidget extends StatelessWidget {
                 showFieldAsBox: true,
                 focusedBorderColor: GlobalVariables.primaryColor,
                 onSubmit: (value) {
-                  // otpValue = value;
+                  otpValue = value;
                 },
                 fieldWidth: 44,
                 keyboardType: TextInputType.number,
