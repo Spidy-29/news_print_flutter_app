@@ -1,8 +1,8 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:news_print_app/screens/home_screen.dart';
-import 'package:news_print_app/screens/onboarding_screen.dart';
+import 'package:news_print_app/screens/home_screens/screens/home_screen.dart';
+import 'package:news_print_app/screens/onboarding/screens/onboarding_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   static const String routeName = '/auth-screen';

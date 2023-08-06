@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:news_print_app/constants/global_variable.dart';
-import 'package:news_print_app/screens/home_screen.dart';
+import 'package:news_print_app/screens/home_screens/screens/home_screen.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 

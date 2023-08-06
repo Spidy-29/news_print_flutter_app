@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_print_app/utils/widgets/custom_appbar_widget.dart';
 import 'package:news_print_app/utils/widgets/fliter_news_scroll_widget.dart';
-import 'package:news_print_app/utils/widgets/recommeded_news_widget.dart';
-import 'package:news_print_app/utils/widgets/trending_news_widget.dart';
+import 'package:news_print_app/screens/home_screens/widgets/recommeded_news_widget.dart';
+import 'package:news_print_app/screens/home_screens/widgets/trending_news_widget.dart';
 
 class ForYouScreen extends StatelessWidget {
   const ForYouScreen({super.key});

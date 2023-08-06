@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_print_app/screens/auth_screen.dart';
-import 'package:news_print_app/screens/home_screen.dart';
-import 'package:news_print_app/screens/onboarding_screen.dart';
-import 'package:news_print_app/screens/signin_with_phone_number_screen.dart';
+import 'package:news_print_app/screens/auth_screens/screens/auth_screen.dart';
+import 'package:news_print_app/screens/home_screens/screens/home_screen.dart';
+import 'package:news_print_app/screens/onboarding/screens/onboarding_screen.dart';
+import 'package:news_print_app/screens/auth_screens/screens/signin_with_phone_number_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {

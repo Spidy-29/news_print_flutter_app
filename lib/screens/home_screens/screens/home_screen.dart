@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:news_print_app/screens/bookmarks_screen.dart';
-import 'package:news_print_app/screens/for_you_screen.dart';
-import 'package:news_print_app/screens/newspaper_screen.dart';
-import 'package:news_print_app/screens/onboarding_screen.dart';
-import 'package:news_print_app/screens/profile_screen.dart';
+import 'package:news_print_app/screens/home_screens/screens/bookmarks_screen.dart';
+import 'package:news_print_app/screens/home_screens/screens/for_you_screen.dart';
+import 'package:news_print_app/screens/home_screens/screens/newspaper_screen.dart';
+import 'package:news_print_app/screens/onboarding/screens/onboarding_screen.dart';
+import 'package:news_print_app/screens/home_screens/screens/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

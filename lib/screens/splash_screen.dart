@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:news_print_app/screens/home_screen.dart';
-import 'package:news_print_app/screens/onboarding_screen.dart';
+import 'package:news_print_app/screens/home_screens/screens/home_screen.dart';
+import 'package:news_print_app/screens/onboarding/screens/onboarding_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 //we convert this screen into stateFullWidget because this screen will remove after some duration and homeScreen will display.
