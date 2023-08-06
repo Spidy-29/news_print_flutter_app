@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
@@ -6,17 +8,42 @@ import 'package:news_print_app/constants/global_variable.dart';
 import 'package:news_print_app/screens/home_screen.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 
-class OtpVerifyScreen extends StatelessWidget {
+class OtpVerifyScreen extends StatefulWidget {
   static const String routeName = '/otp-verify';
   final String verificationId;
   const OtpVerifyScreen({super.key, required this.verificationId});
 
   @override
+  State<OtpVerifyScreen> createState() => _OtpVerifyScreenState();
+}
+
+class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
+  String otpValue = "";
+  late Timer timer;
+  int secondRemaining = 30;
+  bool enableResend = false;
+
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
+        if (secondRemaining != 0) {
+          setState(() {
+            secondRemaining--;
+          });
+        } else {
+          setState(() {
+            enableResend = true;
+          });
+        }
+      });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    String otpValue = "";
     void verifyOTP(String otp) async {
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
-          verificationId: verificationId, smsCode: otp);
+          verificationId: widget.verificationId, smsCode: otp);
 
       // Sign the user in (or link) with the credential
       await FirebaseAuth.instance.signInWithCredential(credential);
@@ -91,8 +118,10 @@ class OtpVerifyScreen extends StatelessWidget {
                       ),
                       Container(
                         margin: const EdgeInsets.only(top: 32),
+                        color: Colors.black54,
+                        alignment: Alignment.topRight,
                         child: const Text(
-                          "Resend OTP is 4:29 ",
+                          "Resend OTP is ",
                           style: TextStyle(
                             color: Color(0xFF666666),
                             fontSize: 14,

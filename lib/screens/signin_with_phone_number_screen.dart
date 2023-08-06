@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:news_print_app/constants/global_variable.dart';
-import 'package:news_print_app/screens/otp_verify_screen.dart';
 import 'package:news_print_app/utils/signin_with_email/widgets/otp_verify_widget.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 
@@ -18,8 +17,8 @@ class _SigninWithEmailScreenState extends State<SigninWithEmailScreen> {
   final TextEditingController phoneNumberController = TextEditingController();
 
   bool isOtpScreen = false;
-  String otpValue = '';
   String firebaseVerificationId = "";
+  String userPhoneNumber = "";
 
   @override
   void dispose() {
@@ -27,16 +26,16 @@ class _SigninWithEmailScreenState extends State<SigninWithEmailScreen> {
   }
 
   sendOtpToUserPhoneNumber() async {
-    String userPhoneNumber = "+91${phoneNumberController.text.toString()}";
+    userPhoneNumber = "+91${phoneNumberController.text.toString()}";
     print(userPhoneNumber);
     // Navigator.pushNamed(context, OtpVerifyScreen.routeName);
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: userPhoneNumber,
-      timeout: const Duration(seconds: 60),
+      timeout: const Duration(seconds: 30),
       verificationCompleted: (PhoneAuthCredential credential) async {
         // OTP Verify successful then go to homescreen
-        await FirebaseAuth.instance.signInWithCredential(credential);
-        print("OTP Verification Success");
+        // await FirebaseAuth.instance.signInWithCredential(credential);
+        // print("OTP Verification Success");
       },
       verificationFailed: (FirebaseAuthException e) {
         // show message that OTP Failed
@@ -48,9 +47,6 @@ class _SigninWithEmailScreenState extends State<SigninWithEmailScreen> {
         // Update the UI - wait for the user to enter the SMS code
         firebaseVerificationId = verificationId;
         print('OTP sent');
-        setState(() {
-          isOtpScreen = !isOtpScreen;
-        });
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
@@ -116,6 +112,7 @@ class _SigninWithEmailScreenState extends State<SigninWithEmailScreen> {
                   // OTP Screens
                   OtpVerifyWidget(
                       verificationId: firebaseVerificationId,
+                      userPhoneNumber: userPhoneNumber,
                     )
                   :
                   // Sign In Screens
@@ -194,6 +191,9 @@ class _SigninWithEmailScreenState extends State<SigninWithEmailScreen> {
                               ),
                               CustomButton(
                                 onTap: () {
+                                  setState(() {
+                                    isOtpScreen = true;
+                                  });
                                   sendOtpToUserPhoneNumber();
                                 },
                                 txtWidget: const Text(

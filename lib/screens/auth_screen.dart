@@ -22,7 +22,7 @@ class AuthScreen extends StatelessWidget {
           // User is Not logged in
           else {
             // check App is opened first time
-            // return Navigator.pushNamed(context, OnboardingScreen.routeName);
+
             return const OnboardingScreen();
           }
         },
