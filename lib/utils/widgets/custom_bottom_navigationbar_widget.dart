@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:news_print_app/screens/onboarding/screens/onboarding_screen.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
@@ -21,7 +23,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       selectedItemColor: Colors.white,
       backgroundColor: Colors.white,
       unselectedItemColor: Colors.brown.shade600,
-      margin: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       items: [
         FloatingNavbarItem(
           // icon: Icons.child_care,
@@ -40,13 +42,17 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         ),
         FloatingNavbarItem(
           // icon: Icons.person_3_rounded,
-          title: "Profile",
+          title: "LogOut",
           customWidget: Image.asset('assets/images/ic_profile.png'),
         ),
       ],
       currentIndex: index,
       onTap: (val) {
         setState(() {
+          if (val == 3) {
+            FirebaseAuth.instance.signOut();
+            Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
+          }
           index = val;
         });
       },

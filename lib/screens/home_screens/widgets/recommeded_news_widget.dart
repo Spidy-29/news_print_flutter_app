@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_print_app/utils/widgets/recommended_news_card_widget.dart';
+import 'package:news_print_app/screens/home_screens/widgets/recommended_news_card_widget.dart';
 
 class RecommendedNews extends StatelessWidget {
   const RecommendedNews({super.key});

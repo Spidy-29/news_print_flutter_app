@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_print_app/screens/home_screen.dart';
+import 'package:news_print_app/screens/home_screens/screens/home_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class DemoNavBar extends StatelessWidget {
