@@ -42,14 +42,14 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         ),
         FloatingNavbarItem(
           // icon: Icons.person_3_rounded,
-          title: "LogOut",
+          title: "Profile",
           customWidget: Image.asset('assets/images/ic_profile.png'),
         ),
       ],
       currentIndex: index,
       onTap: (val) {
         setState(() {
-          if (val == 3) {
+          if (val == 2) {
             FirebaseAuth.instance.signOut();
             Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
           }
@@ -57,28 +57,5 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         });
       },
     );
-
-    // ScrollBottomNavigationBar(
-    //   controller: scrollController,
-    //   items: const [
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.child_care),
-    //       label: "For You",
-    //     ),
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.bookmark),
-    //       label: "",
-    //     ),
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.document_scanner_sharp),
-    //       label: "For You",
-    //     ),
-    //     BottomNavigationBarItem(
-    //       icon: Icon(Icons.person_3_rounded),
-    //       label: "For You",
-    //     ),
-    //   ],
-    //   currentIndex: 0,
-    // );
   }
 }
