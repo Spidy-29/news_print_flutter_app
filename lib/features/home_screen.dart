@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:news_print_app/screens/home_screens/widgets/recommeded_news_widget.dart';
+import 'package:news_print_app/screens/home_screens/widgets/trending_news_widget.dart';
 
 import '../utils/widgets/custom_appbar_widget.dart';
 import '../utils/widgets/custom_bottom_navigationbar_widget.dart';
 import '../utils/widgets/fliter_news_scroll_widget.dart';
-import '../utils/widgets/recommeded_news_widget.dart';
-import '../utils/widgets/trending_news_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -62,7 +62,6 @@ class HomeScreen extends StatelessWidget {
               child: const CustomBottomNavigationBar(),
               // child: const DemoNavBar(),
             ),
-            
           ],
         ),
         // bottomNavigationBar: CustomBottomNavigationBar(),

@@ -1,8 +1,12 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:news_print_app/features/onboarding/onboarding_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../screens/home_screens/screens/home_screen.dart';
 
 //we convert this screen into stateFullWidget because this screen will remove after some duration and homeScreen will display.
 //so this screen do some change so in stateFullWidget
@@ -16,21 +20,41 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   // init function will call only one time during object creation
+
+  bool showOnboarding = true;
+  checkAppStartFirstTime() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    if (pref.getBool('isAppStartedFirstTime') == null) {
+      showOnboarding = true;
+    } else {
+      showOnboarding = pref.getBool('isAppStartedFirstTime')!;
+    }
+  }
+
   @override
   void initState() {
     //DO timer thing that after some duration this screen will replace with homeScreen
 
-    Timer(const Duration(seconds: 2), () {
-      //this will replace screen to HomeScreen
-      //so when user click back splash screen not comes. because it is replace in the stack Screens.
-      // Navigator.pushReplacement(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) => const HomeScreen(),
-      //     ));
+    checkAppStartFirstTime();
 
-      Navigator.pushNamed(context, OnboardingScreen.routeName);
-    });
+    Timer(
+      const Duration(seconds: 2),
+      () async {
+        //this will replace screen to HomeScreen
+        //so when user click back splash screen not comes. because it is replace in the stack Screens.
+        if (FirebaseAuth.instance.currentUser != null) {
+          Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+        } else {
+          if (showOnboarding)  {
+            SharedPreferences pref = await SharedPreferences.getInstance();
+            pref.setBool('isAppStartedFirstTime', false);
+            Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
+          } else {
+            Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+          }
+        }
+      },
+    );
 
     super.initState();
   }

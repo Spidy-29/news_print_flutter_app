@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "381489513964",
+    "project_id": "buzzwire-55635",
+    "storage_bucket": "buzzwire-55635.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381489513964:android:404a01ea79ad0e6294ecc9",
+        "android_client_info": {
+          "package_name": "com.example.news_print_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381489513964-greh4rc3begrfnc4s3danaf3isutd5lf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsN-4-bJRGqbXRua1Aj3TWtMB1G0oz5fU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381489513964-0div7j7h0s49th7d7cda7h5n34qgh07a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

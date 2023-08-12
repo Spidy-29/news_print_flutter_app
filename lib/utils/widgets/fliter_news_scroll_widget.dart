@@ -6,19 +6,23 @@ class FilterNewsScroll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> list = [
+      "🌟 Featured",
+      "🎭 Culture",
+      "⚽️ Sports",
+      "📈️ Stocks",
+    ];
+
     return Container(
-      constraints: const BoxConstraints(
-        minHeight: 32,
-        maxHeight: 32
-      ),
-      child: ListView(
+      constraints: const BoxConstraints(minHeight: 32, maxHeight: 32),
+      child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        children: const [
-          FilterNews(filterText: "🌟 Featured"),
-          FilterNews(filterText: "🎭 Culture"),
-          FilterNews(filterText: "⚽️ Sports"),
-          FilterNews(filterText: "📈️ Stocks"),
-        ],
+        itemCount: list.length,
+        itemBuilder: (context, index) {
+          return FilterNews(
+            filterText: list[index],
+          );
+        },
       ),
     );
   }
