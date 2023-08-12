@@ -1,23 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_print_app/screens/home_screens/widgets/recommeded_news_widget.dart';
-import 'package:news_print_app/screens/home_screens/widgets/trending_news_widget.dart';
+import 'package:news_print_app/features/home_screens/for_you_page/widgets/recommeded_news_widget.dart';
+import 'package:news_print_app/features/home_screens/for_you_page/widgets/trending_news_widget.dart';
+import 'package:news_print_app/utils/widgets/custom_appbar_widget.dart';
+import 'package:news_print_app/utils/widgets/fliter_news_scroll_widget.dart';
 
-import '../utils/widgets/custom_appbar_widget.dart';
-import '../utils/widgets/custom_bottom_navigationbar_widget.dart';
-import '../utils/widgets/fliter_news_scroll_widget.dart';
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class ForYouPage extends StatelessWidget {
+  const ForYouPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // final scrollController = ScrollController();
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Stack(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,14 +55,8 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              alignment: Alignment.bottomCenter,
-              child: const CustomBottomNavigationBar(),
-              // child: const DemoNavBar(),
-            ),
           ],
         ),
-        // bottomNavigationBar: CustomBottomNavigationBar(),
       ),
     );
   }

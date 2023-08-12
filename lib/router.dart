@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_print_app/features/onboarding/onboarding_screen.dart';
 import 'package:news_print_app/screens/auth_screens/screens/auth_screen.dart';
 import 'package:news_print_app/screens/auth_screens/screens/signin_with_phone_number_screen.dart';
-import 'package:news_print_app/screens/home_screens/screens/home_screen.dart';
+import 'package:news_print_app/utils/widgets/custom_bottom_navigationbar_widget.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -16,16 +16,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => const SigninWithEmailScreen(),
         settings: routeSettings,
       );
-    case HomeScreen.routeName:
+    case CustomBottomNavigationBar.routeName:
       return MaterialPageRoute(
-        builder: (_) => const HomeScreen(),
+        builder: (_) => const CustomBottomNavigationBar(),
         settings: routeSettings,
       );
-    // case OtpVerifyScreen.routeName:
-    //   return MaterialPageRoute(
-    //     builder: (_) => const OtpVerifyScreen(),
-    //     settings: routeSettings,
-    //   );
     case AuthScreen.routeName:
       return MaterialPageRoute(
         builder: (_) => const AuthScreen(),

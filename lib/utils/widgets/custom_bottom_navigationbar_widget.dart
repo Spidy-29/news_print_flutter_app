@@ -1,10 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:news_print_app/screens/onboarding/screens/onboarding_screen.dart';
+import 'package:news_print_app/features/home_screens/for_you_page/for_you_page.dart';
+import 'package:news_print_app/features/home_screens/news_paper_page/news_paper_page.dart';
+import 'package:news_print_app/features/home_screens/profile_page/profile_page.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
+  static const String routeName = 'bottom-navbar';
   const CustomBottomNavigationBar({super.key});
 
   @override
@@ -13,7 +15,15 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int index = 0;
+  int _page = 0;
+
+  List<Widget> pages = [
+    const ForYouPage(),
+    const NewsPaperPage(),
+    const NewsPaperPage(),
+    const ProfilePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return FloatingNavbar(
@@ -46,14 +56,14 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           customWidget: Image.asset('assets/images/ic_profile.png'),
         ),
       ],
-      currentIndex: index,
+      currentIndex: _page,
       onTap: (val) {
         setState(() {
-          if (val == 2) {
-            FirebaseAuth.instance.signOut();
-            Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
-          }
-          index = val;
+          // if (val == 2) {
+          //   FirebaseAuth.instance.signOut();
+          //   Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
+          // }
+          _page = val;
         });
       },
     );

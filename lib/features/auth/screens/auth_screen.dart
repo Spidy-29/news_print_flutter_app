@@ -1,8 +1,8 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:news_print_app/screens/home_screens/screens/home_screen.dart';
-import 'package:news_print_app/screens/onboarding/screens/onboarding_screen.dart';
+import 'package:news_print_app/features/onboarding/screens/onboarding_screen.dart';
+import 'package:news_print_app/utils/widgets/custom_bottom_navigationbar_widget.dart';
 
 class AuthScreen extends StatelessWidget {
   static const String routeName = '/auth-screen';
@@ -17,7 +17,7 @@ class AuthScreen extends StatelessWidget {
           // User is logged in
           if (snapshot.hasData) {
             // return Navigator.pushNamed(context, HomeScreen.routeName);
-            return const HomeScreen();
+            return const CustomBottomNavigationBar();
           }
           // User is Not logged in
           else {
