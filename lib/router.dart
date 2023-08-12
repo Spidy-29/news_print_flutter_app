@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_print_app/screens/onboarding_screen.dart';
-import 'package:news_print_app/screens/signin_with_email.dart';
+import 'package:news_print_app/features/onboarding/onboarding_screen.dart';
+import 'package:news_print_app/features/auth/screens/signin_with_email.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {

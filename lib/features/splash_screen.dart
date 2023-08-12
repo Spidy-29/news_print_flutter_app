@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:news_print_app/screens/onboarding_screen.dart';
+import 'package:news_print_app/features/onboarding/onboarding_screen.dart';
 
 //we convert this screen into stateFullWidget because this screen will remove after some duration and homeScreen will display.
 //so this screen do some change so in stateFullWidget

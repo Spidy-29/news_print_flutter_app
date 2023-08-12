@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:news_print_app/router.dart';
-import 'package:news_print_app/screens/splash_screen.dart';
+import 'package:news_print_app/features/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
