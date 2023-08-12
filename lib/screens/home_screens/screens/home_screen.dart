@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   FloatingNavbarItem(
                     // icon: Icons.person_3_rounded,
-                    title: "LogOut",
+                    title: "Profile",
                     customWidget: Image.asset('assets/images/ic_profile.png'),
                   ),
                 ],
