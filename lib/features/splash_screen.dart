@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:news_print_app/features/onboarding/onboarding_screen.dart';
+import 'package:news_print_app/features/onboarding/screens/onboarding_screen.dart';
 import 'package:news_print_app/utils/widgets/custom_bottom_navigationbar_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

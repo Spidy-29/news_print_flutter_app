@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:news_print_app/constants/global_variable.dart';
-import 'package:news_print_app/screens/auth_screens/screens/signin_with_phone_number_screen.dart';
+import 'package:news_print_app/features/auth/screens/signin_with_phone_number_screen.dart';
 import 'package:news_print_app/features/auth/server/auth_service.dart';
 import 'package:news_print_app/utils/widgets/custom_bottom_navigationbar_widget.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
