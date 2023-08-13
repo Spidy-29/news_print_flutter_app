@@ -1,0 +1,13 @@
+<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ideate/line/cart" clip-path="url(#clip0_10_394)">
+<g id="Group 481952">
+<circle id="Ellipse 8" cx="13" cy="12" r="10" fill="#8D8D8D"/>
+<path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M13 12C14.6569 12 16 10.6569 16 9C16 7.34315 14.6569 6 13 6C11.3431 6 10 7.34315 10 9C10 10.6569 11.3431 12 13 12ZM7 16C7.81565 16.9476 8.39647 17.4123 9.5 18C10.7547 18.6682 11.5785 19 13 19C14.4215 19 15.2453 18.6682 16.5 18C17.6035 17.4123 19 16 19 16C19 16 18.5557 14.9322 18 14.5C17.6554 14.2319 17 14 17 14H9C8.57877 14.1149 8.34465 14.2319 8 14.5C7.44427 14.9322 7 16 7 16Z" fill="black"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_10_394">
+<rect width="24" height="24" fill="white" transform="translate(0.5)"/>
+</clipPath>
+</defs>
+</svg>

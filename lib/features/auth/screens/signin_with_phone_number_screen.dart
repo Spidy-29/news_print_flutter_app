@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:news_print_app/constants/global_variable.dart';
 import 'package:news_print_app/constants/utils.dart';
-import 'package:news_print_app/utils/signin_with_email/widgets/otp_verify_widget.dart';
+import 'package:news_print_app/features/auth/widgets/otp_verify_widget.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 import 'package:news_print_app/utils/widgets/loder.dart';
 

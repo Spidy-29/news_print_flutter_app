@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_print_app/constants/global_variable.dart';
-import 'package:news_print_app/screens/onboarding/widgets/page1.dart';
-import 'package:news_print_app/screens/onboarding/widgets/page2.dart';
-import 'package:news_print_app/screens/onboarding/widgets/page3.dart';
+import 'package:news_print_app/features/onboarding/widgets/page1.dart';
+import 'package:news_print_app/features/onboarding/widgets/page2.dart';
+import 'package:news_print_app/features/onboarding/widgets/page3.dart';
 import 'package:video_player/video_player.dart';
 
 class OnboardingScreen extends StatefulWidget {

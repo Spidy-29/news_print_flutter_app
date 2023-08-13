@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:news_print_app/constants/global_variable.dart';
-import 'package:news_print_app/screens/home_screens/screens/home_screen.dart';
-import 'package:news_print_app/screens/auth_screens/screens/signin_with_phone_number_screen.dart';
-import 'package:news_print_app/screens/auth_screens/server/auth_service.dart';
+import 'package:news_print_app/features/auth/screens/signin_with_phone_number_screen.dart';
+import 'package:news_print_app/features/auth/server/auth_service.dart';
+import 'package:news_print_app/utils/widgets/custom_bottom_navigationbar_widget.dart';
 import 'package:news_print_app/utils/widgets/custom_button.dart';
 import 'package:news_print_app/utils/widgets/icon_with_text_row_widget.dart';
 
@@ -55,7 +55,7 @@ class OnboardingPage3 extends StatelessWidget {
                 print("Button Clicked");
                 await AuthService().signInWithGoogle();
                 print("Function Called And Returned");
-                Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+                Navigator.pushReplacementNamed(context, CustomBottomNavigationBar.routeName);
               },
               txtWidget: IconWithText(
                 txt: "Sign In with Google",

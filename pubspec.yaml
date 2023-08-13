@@ -45,6 +45,10 @@ dependencies:
   firebase_core: ^2.15.0
   flutter_otp_text_field: ^1.1.1
   shared_preferences: ^2.2.0
+  http: ^1.1.0
+  color_extract: ^1.0.1+1
+  image: ^4.0.17
+  image_pixels: ^3.0.1
 
 dev_dependencies:
   flutter_test:
