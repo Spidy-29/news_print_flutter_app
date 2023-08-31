@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class RecommendedNewsCard extends StatelessWidget {
-  const RecommendedNewsCard({super.key});
+  final String imageUrl;
+  final String articleDescription;
+  final String articleTitle;
+  const RecommendedNewsCard({
+    super.key,
+    required this.imageUrl,
+    required this.articleTitle,
+    required this.articleDescription,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +24,35 @@ class RecommendedNewsCard extends StatelessWidget {
         width: 200,
         child: Column(
           children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
-              ),
-              child: Image.asset(
-                "assets/images/modi.jpg",
-                fit: BoxFit.fitWidth,
-                width: double.infinity,
-              ),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 110),
+              child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12),
+                  ),
+                  child: Image.network(
+                    imageUrl,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) {
+                        // image fully loaded
+                        return child;
+                      }
+                      return Image.asset(
+                        "assets/images/modi.jpg",
+                        fit: BoxFit.cover,
+                      );
+                    },
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  )
+
+                  /*Image.asset(
+                  "assets/images/modi.jpg",
+                  fit: BoxFit.fitWidth,
+                  width: double.infinity,
+                ),*/
+                  ),
             ),
             Expanded(
               flex: 1,
@@ -34,17 +61,17 @@ class RecommendedNewsCard extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Text(
-                      "Goldman Sachs Being Probed Over Silicon Valley Bank Collapse",
-                      style: TextStyle(
+                    Text(
+                      articleTitle,
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    const Text(
-                      "Goldman is \"cooperating with and providing information to various governmental bodies\" on its activities for SVB in March just before the tech-oriented bank went under, according to the filing.",
-                      style: TextStyle(
+                    Text(
+                      articleDescription,
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 8,
                         fontWeight: FontWeight.w400,

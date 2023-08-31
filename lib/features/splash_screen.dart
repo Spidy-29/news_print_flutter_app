@@ -41,16 +41,16 @@ class _SplashScreenState extends State<SplashScreen> {
       () async {
         //this will replace screen to HomeScreen
         //so when user click back splash screen not comes. because it is replace in the stack Screens.
-        if (FirebaseAuth.instance.currentUser != null) {
-          Navigator.pushReplacementNamed(context, CustomBottomNavigationBar.routeName);
+
+        if (showOnboarding) {
+          SharedPreferences pref = await SharedPreferences.getInstance();
+          pref.setBool('isAppStartedFirstTime', false);
+          Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
+        } else if (FirebaseAuth.instance.currentUser != null) {
+          Navigator.pushReplacementNamed(
+              context, CustomBottomNavigationBar.routeName);
         } else {
-          if (showOnboarding)  {
-            SharedPreferences pref = await SharedPreferences.getInstance();
-            pref.setBool('isAppStartedFirstTime', false);
-            Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
-          } else {
-            Navigator.pushReplacementNamed(context, CustomBottomNavigationBar.routeName);
-          }
+          Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
         }
       },
     );

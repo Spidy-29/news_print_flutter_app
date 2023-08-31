@@ -1,12 +1,25 @@
+import 'package:intl/intl.dart';
+
 import 'package:flutter/material.dart';
 
 class TrendingNewsCard extends StatelessWidget {
-  const TrendingNewsCard({super.key});
+  final String articleImageUrl,
+      articleTitle,
+      articleDescription,
+      sourceName,
+      publishTime;
+  const TrendingNewsCard({
+    super.key,
+    required this.articleImageUrl,
+    required this.articleTitle,
+    required this.articleDescription,
+    required this.sourceName,
+    required this.publishTime,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      
       margin: const EdgeInsets.only(bottom: 12.0),
       color: Colors.white,
       elevation: 2.0,
@@ -26,10 +39,18 @@ class TrendingNewsCard extends StatelessWidget {
                     topLeft: Radius.circular(12),
                     bottomLeft: Radius.circular(12),
                   ),
-                  child: Image.asset(
-                    "assets/images/modi.jpg",
+                  child: Image.network(
+                    articleImageUrl,
                     fit: BoxFit.fill,
                     height: double.infinity,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Image.asset(
+                        "assets/images/modi.jpg",
+                        fit: BoxFit.fill,
+                        height: double.infinity,
+                      );
+                    },
                   )),
             ),
             Expanded(
@@ -39,17 +60,21 @@ class TrendingNewsCard extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Text(
-                      "Goldman Sachs Being Probed Over Silicon Valley Bank Collapse",
-                      style: TextStyle(
+                    Text(
+                      articleTitle,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    const Text(
-                      "Goldman is \"cooperating with and providing information to various governmental bodies\" on its activities for SVB in March just before the tech-oriented bank went under, ",
-                      style: TextStyle(
+                    Text(
+                      articleDescription,
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w400,
@@ -66,11 +91,11 @@ class TrendingNewsCard extends StatelessWidget {
                                 "assets/images/economic_times_logo.png",
                               ),
                             ),
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.symmetric(horizontal: 3),
                               child: Text(
-                                "Economic times",
-                                style: TextStyle(
+                                sourceName,
+                                style: const TextStyle(
                                   color: Color(0xFF828282),
                                   fontSize: 10,
                                   fontWeight: FontWeight.w500,
@@ -79,9 +104,10 @@ class TrendingNewsCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const Text(
-                          "3 min Read  4:12 PM ",
-                          style: TextStyle(
+                        Text(
+                          DateFormat('dd-MM-yyyy h:mm a')
+                              .format(DateTime.parse(publishTime).toLocal()),
+                          style: const TextStyle(
                             color: Color(0xFF828282),
                             fontSize: 8,
                             fontWeight: FontWeight.w500,

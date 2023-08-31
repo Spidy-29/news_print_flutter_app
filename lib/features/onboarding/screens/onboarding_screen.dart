@@ -15,7 +15,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   late VideoPlayerController _controller;
-  int pages = 2;
+  int page = 0;
   @override
   void initState() {
     super.initState();
@@ -24,14 +24,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     _controller.addListener(() {
       if (_controller.value.isPlaying) {
         setState(() {
-          pages = 1;
+          page = 1;
         });
       } else if (!_controller.value.isPlaying &&
           (_controller.value.duration == _controller.value.position)) {
         //checking the duration and position every time
         //Video Completed//
         setState(() {
-          pages = 2;
+          page = 2;
         });
       }
     });
@@ -57,23 +57,60 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: GlobalVariables.bgColor,
-        body: Column(
-          children: <Widget>[
-            // video container
-            Expanded(
-              flex: 1,
-              child: SizedBox(
-                height: 360,
-                width: double.infinity,
-                child: VideoPlayer(_controller),
+        body: Stack(
+          children: [
+            Column(
+              children: <Widget>[
+                // video container
+                Expanded(
+                  flex: 1,
+                  child: SizedBox(
+                    height: 360,
+                    width: double.infinity,
+                    child: VideoPlayer(_controller),
+                  ),
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Expanded(
+                  flex: 1,
+                  child: listOfPages[page],
+                ),
+              ],
+            ),
+            Container(
+              alignment: Alignment.topRight,
+              margin: const EdgeInsets.only(right: 20, top: 15),
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    page = 2;
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0x99FFFFFF),
+                  elevation: 1,
+                  alignment: Alignment.center,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    side: const BorderSide(
+                        width: 1,
+                        color: GlobalVariables.lightGray,
+                        style: BorderStyle.solid),
+                  ),
+                ),
+                child: const Text(
+                  "Skip",
+                  style: TextStyle(
+                    color: GlobalVariables.primaryColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            Expanded(
-              flex: 1,
-              child: listOfPages[pages],
             ),
           ],
         ),

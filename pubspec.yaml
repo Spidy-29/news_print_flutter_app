@@ -49,6 +49,8 @@ dependencies:
   color_extract: ^1.0.1+1
   image: ^4.0.17
   image_pixels: ^3.0.1
+  flutter_dotenv: ^5.1.0
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +78,7 @@ flutter:
   assets:
     - assets/images/
     - assets/videos/
+    - lib/.env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
