@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:news_print_app/constants/global_variable.dart';
 import 'package:news_print_app/features/home_screens/profile_page/circular_profile_widget.dart';
 import 'package:news_print_app/features/notification/notification_screen.dart';
 
@@ -32,7 +34,7 @@ class ProfilePage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
-                  color:Color(0xFF333333),
+                  color: Color(0xFF333333),
                 ),
               ),
               Container(
@@ -49,7 +51,7 @@ class ProfilePage extends StatelessWidget {
                   "Rashmika Manddna, 28",
                   style: TextStyle(
                     fontSize: 24,
-                    color:Color(0xFF333333),
+                    color: Color(0xFF333333),
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -105,7 +107,7 @@ class ProfilePage extends StatelessWidget {
                         title: Text("Notification Settings"),
                         leading: Icon(
                           Icons.notifications_active_outlined,
-                          color:Color(0xFF333333),
+                          color: Color(0xFF333333),
                         ),
                       ),
                     ),
@@ -119,7 +121,7 @@ class ProfilePage extends StatelessWidget {
                       tileColor: Colors.white,
                       leading: Icon(
                         Icons.translate_outlined,
-                        color:Color(0xFF333333),
+                        color: Color(0xFF333333),
                       ),
                     ),
                     const Divider(
@@ -132,7 +134,7 @@ class ProfilePage extends StatelessWidget {
                       tileColor: Colors.white,
                       leading: Icon(
                         Icons.access_time_rounded,
-                        color:Color(0xFF333333),
+                        color: Color(0xFF333333),
                       ),
                     ),
                   ],
@@ -164,37 +166,54 @@ class ProfilePage extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Column(
+                child: Column(
                   children: [
-                    ListTile(
+                    const ListTile(
                       title: Text("Account Details"),
                       leading: Icon(
                         Icons.person,
-                        color:Color(0xFF333333),
+                        color: Color(0xFF333333),
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       color: Color(0xFFE0E0E0),
                       height: 0,
                       thickness: 1.0,
                     ),
-                    ListTile(
+                    const ListTile(
                       title: Text("Unit Setting"),
                       leading: Icon(
                         Icons.settings,
-                        color:Color(0xFF333333),
+                        color: Color(0xFF333333),
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       color: Color(0xFFE0E0E0),
                       height: 0,
                       thickness: 1.0,
                     ),
-                    ListTile(
+                    const ListTile(
                       title: Text("User Policy"),
                       leading: Icon(
                         Icons.policy_outlined,
-                        color:Color(0xFF333333),
+                        color: Color(0xFF333333),
+                      ),
+                    ),
+                    const Divider(
+                      color: Color(0xFFE0E0E0),
+                      height: 0,
+                      thickness: 1.0,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        FirebaseAuth.instance.signOut();
+                      },
+                      child: const ListTile(
+                        title: Text("Logout"),
+                        leading: Icon(
+                          Icons.logout_outlined,
+                          color: GlobalVariables.primaryColor,
+                        ),
                       ),
                     ),
                   ],
